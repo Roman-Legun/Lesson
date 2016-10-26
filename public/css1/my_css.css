@@ -1,3 +1,9 @@
 body {
 	background-color: Beige;
 }
+
+input[type="text"] {
+font-size: 18px;
+height: 38px;
+width: 500px;
+}

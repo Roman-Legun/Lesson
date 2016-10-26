@@ -32,15 +32,13 @@
 						<ul class="nav navbar-nav">
 							<li><a href="music">музика</a></li>
 							<li><a href="">Кiно</a></li>
+							<li><a href="users">Нашi гостi</a></li>
 							<li><a href="">Контакти</a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</nav>
 
 				<div>
-					<%if @error then %>
-					<div class="alert alert-error"><%=@error%></div>
-					<% end %>
 					<h1><%= yield %></h1>
 				</div>
 
