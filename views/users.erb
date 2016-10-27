@@ -2,37 +2,62 @@
 
 <form action="/users" method="POST">
 
-  <div class="form-group">
-    <label>Ваше iм'я:</label>
-    <input type="text" name="user_name" class="form-control" id="exampleInputEmail1" placeholder="введiть iм'я">
-  </div>
+	<div class="form-group">
+		<label>Ваше iм'я:</label>
+		<input type="text" name="user_name" class="form-control" id="exampleInputEmail1" placeholder="введiть iм'я">
+	</div>
 
-  <div class="form-group">
-    <label>Ваша фамiлiя:</label>
-    <input type="text" name="user_name2" class="form-control" id="exampleInputEmail1" placeholder="введiть Фамiлiю">
-  </div>
+	<div class="form-group">
+		<label>Ваша фамiлiя:</label>
+		<input type="text" name="user_name2" class="form-control" id="exampleInputEmail1" placeholder="введiть Фамiлiю">
+	</div>
 
-  <div class="form-group">
-    <label>Ваш телефон:</label>
-    <input type="text" name="phone" class="form-control" id="exampleInputEmail1" placeholder="введiть номер телефону">
-  </div>
+	<div class="form-group">
+		<label>Ваш телефон:</label>
+		<input type="text" name="phone" class="form-control" id="exampleInputEmail1" placeholder="введiть номер телефону">
+	</div>
 
-  <div class="form-group">
-    <label>Коли вас чекати:</label>
-    <input type="text" name="date" class="form-control" id="exampleInputEmail1" placeholder="введiть дату">
-  </div>
+	<div class="form-group">
+		<label>Коли вас чекати:</label>
+		<input type="text" name="date" class="form-control" id="exampleInputEmail1" placeholder="введiть дату">
+	</div>
 
-  <div class="form-group">
-  <label>Виберiть нашого майстра:</label>
-  <select type="text" name="master" class="form-control">
-  <option type="text">Коля Ткачук</option>
-  <option type="text">Леся Дузiнкевич</option>
-  <option type="text">Роман Човганюк</option>
-  <option type="text">Орест Калиновський</option>
-  <option type="text">Богдан Ткаченко</option>
-</select>
-</div>
+	<div class="form-group">
+		<label>Виберiть нашого майстра:</label>
+		<select type="text" name="master" class="form-control">
+			<option type="text">Коля Ткачук</option>
+			<option type="text">Леся Дузiнкевич</option>
+			<option type="text">Роман Човганюк</option>
+			<option type="text">Орест Калиновський</option>
+			<option type="text">Богдан Ткаченко</option>
+		</select>
+	</div>
 
-  <button type="submit" class="btn btn-primary">ВIДПРАВИТИ</button>
+	<div>
+		<label>Виберiть любий колiр:</label>
+		<select id="color" name="color">
+			<option value="#7bd148">Green</option>
+			<option value="#5484ed">Bold blue</option>
+			<option value="#a4bdfc">Blue</option>
+			<option value="#46d6db">Turquoise</option>
+			<option value="#7ae7bf">Light green</option>
+			<option value="#51b749">Bold green</option>
+			<option value="#fbd75b">Yellow</option>
+			<option value="#ffb878">Orange</option>
+			<option value="#ff887c">Red</option>
+			<option value="#dc2127">Bold red</option>
+			<option value="#dbadff">Purple</option>
+			<option value="#e1e1e1">Gray</option>
+		</select>
+	</div>
+
+	<button type="submit" class="btn btn-primary">ВIДПРАВИТИ</button>
 
 </form>
+
+<script>
+	$ (function(){
+		$('#color').simplecolorpicker();
+	});
+</script>
+

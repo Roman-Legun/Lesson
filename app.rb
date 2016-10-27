@@ -26,9 +26,10 @@ post '/users' do
   @phone = params[:phone]
   @date = params[:date]
   @master = params[:master]
+  @color = params[:color]
 
   erb "OK #{@user_name} #{@user_name2} ми радi що ви в нас зарегiструвалися!      
-  Наш майстер #{@master} буде вас чекати на: #{@date}"
+  Наш майстер #{@master} буде вас чекати на: #{@date} #{@color}"
 
 
 end
