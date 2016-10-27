@@ -21,6 +21,14 @@ end
 
 post '/users' do
 
-  erb :users
+  @user_name = params[:user_name]
+  @user_name2 = params[:user_name2]
+  @phone = params[:phone]
+  @date = params[:date]
+  @master = params[:master]
 
-  end
+  erb "OK #{@user_name} #{@user_name2} ми радi що ви в нас зарегiструвалися!      
+  Наш майстер #{@master} буде вас чекати на: #{@date}"
+
+
+end
