@@ -4,9 +4,9 @@
 	<title>Мiй сайт</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Bootstrap -->
-	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css1/my_css.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="jquery.simplecolorpicker.js"></script>
 	<link rel="stylesheet" href="jquery.simplecolorpicker.css">
 
@@ -37,7 +37,7 @@
 					<div class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
 							<li><a href="music">музика</a></li>
-							<li><a href="">Кiно</a></li>
+							<li><a href="kino">Кiно</a></li>
 							<li><a href="users">Нашi гостi</a></li>
 							<li><a href="">Контакти</a></li>
 						</ul>
@@ -45,6 +45,9 @@
 				</nav>
 
 				<div>
+				<%if @error then %>
+					<div class="alert alert-danger"><%=@error%></div>
+					<% end %>
 					<h1><%= yield %></h1>
 				</div>
 
