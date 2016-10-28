@@ -25,11 +25,11 @@
 	<div class="form-group">
 		<label>Виберiть нашого майстра:</label>
 		<select type="text" name="master" class="form-control">
-			<option type="text">Коля Ткачук</option>
-			<option type="text">Леся Дузiнкевич</option>
-			<option type="text">Роман Човганюк</option>
-			<option type="text">Орест Калиновський</option>
-			<option type="text">Богдан Ткаченко</option>
+			<option <%=@master == "Коля Ткачук" ? "selected" : ""%> type="text">Коля Ткачук</option>
+			<option <%=@master == "Леся Дузiнкевич" ? "selected" : ""%> type="text">Леся Дузiнкевич</option>
+			<option <%=@master == "Роман Човганюк" ? "selected" : ""%> type="text">Роман Човганюк</option>
+			<option <%=@master == "Орест Калиновський" ? "selected" : ""%> type="text">Орест Калиновський</option>
+			<option <%=@master == "Богдан Ткаченко" ? "selected" : ""%> type="text">Богдан Ткаченко</option>
 		</select>
 	</div>
 
