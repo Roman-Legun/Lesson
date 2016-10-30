@@ -1,6 +1,20 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
+require 'sqlite3'
+
+configure do
+  db = get_db
+  db.execute 'CREATE TABLE IF NOT EXISTS "users" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "Name" TEXT,
+    "Last_name" TEXT,
+    "Phone" INTEGER,
+    "Date" INTEGER,
+    "Master" TEXT,
+    "Color" TEXT
+)'
+end
 
 get '/' do
   erb "Всiм привiт!"
@@ -47,8 +61,23 @@ post '/users' do
     end
   end
 
+  db = get_db
+  db.execute 'insert into users(
+    Name,
+    Last_name,
+    Phone,
+    Date,
+    Master,
+    Color
+  )
+  values (?, ?, ?, ?, ?, ?)', [@user_name, @user_name2, @phone, @date, @master, @color]
+
   erb "OK #{@user_name} #{@user_name2} ми радi що ви в нас зарегiструвалися!      
   Наш майстер #{@master} буде вас чекати на: #{@date} #{@color}"
 
 
+end
+
+def get_db
+  return SQLite3::Database.new "shop.db"
 end
