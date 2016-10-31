@@ -64,7 +64,7 @@ get '/users' do
 end
 
 get '/kino' do
-  @error = "сторiнка поки що не доступна!!!"
+  @error = "Кiна поки що нема!!!"
   erb :kino
 end
 
