@@ -3,23 +3,47 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'sqlite3'
 
+def is_master_exists? db, name
+  db.execute('select * from masters where Name=?', [name]).length > 0
+end
+
+def seed_db db, masters
+  masters.each do |master|
+    if !is_master_exists? db, master
+      db.execute 'insert into masters (Name) values (?)', [master]
+    end
+  end
+end
+
 def get_db
   db = SQLite3::Database.new "shop.db"
   db.results_as_hash = true
   return db
 end
 
+before do
+  db = get_db
+  @masters = db.execute 'select * from masters'
+end
+
 configure do
   db = get_db
   db.execute 'CREATE TABLE IF NOT EXISTS "users" (
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "Name" TEXT,
-    "Last_name" TEXT,
-    "Phone" INTEGER,
-    "Date" INTEGER,
-    "Master" TEXT,
-    "Color" TEXT
-)'
+  "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+  "Name" TEXT,
+  "Last_name" TEXT,
+  "Phone" INTEGER,
+  "Date" INTEGER,
+  "Master" TEXT,
+  "Color" TEXT
+  )'
+  db.execute 'CREATE TABLE IF NOT EXISTS "masters" (
+  "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+  "Name" TEXT  
+  )'
+
+  seed_db db, ["Коля Ткачук", "Леся Дузiнкевич", "Роман Човганюк", "Орест Калиновський", "Богдан Ткаченко"]
+
 end
 
 get '/' do
@@ -69,12 +93,12 @@ post '/users' do
 
   db = get_db
   db.execute 'insert into users(
-    Name,
-    Last_name,
-    Phone,
-    Date,
-    Master,
-    Color
+  Name,
+  Last_name,
+  Phone,
+  Date,
+  Master,
+  Color
   )
   values (?, ?, ?, ?, ?, ?)', [@user_name, @user_name2, @phone, @date, @master, @color]
 
@@ -86,6 +110,6 @@ end
 get '/show_users' do
   db = get_db
   @results = db.execute 'select * from users order by id desc'
-   erb :show_users
+  erb :show_users
 end
 

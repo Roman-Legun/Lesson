@@ -32,15 +32,15 @@
 	<div class="form-group">
 		<label>Виберiть нашого майстра:</label>
 		<select type="text" name="master" class="form-control">
-			<option <%=@master == "Коля Ткачук" ? "selected" : ""%> type="text">Коля Ткачук</option>
-			<option <%=@master == "Леся Дузiнкевич" ? "selected" : ""%> type="text">Леся Дузiнкевич</option>
-			<option <%=@master == "Роман Човганюк" ? "selected" : ""%> type="text">Роман Човганюк</option>
-			<option <%=@master == "Орест Калиновський" ? "selected" : ""%> type="text">Орест Калиновський</option>
-			<option <%=@master == "Богдан Ткаченко" ? "selected" : ""%> type="text">Богдан Ткаченко</option>
+
+			<%@masters.each do |item|%>
+			<option <%=@master == item['Name'] ? 'selected' : '' %>><%=item['Name']%></option>
+			<%end%>
+
 		</select>
 	</div>
 
-	<div>
+	<div>    
 		<label>Виберiть любий колiр:</label>
 		<select id="color" name="color">
 			<option value="#7bd148">Green</option>
