@@ -1,0 +1,25 @@
+
+<table id="x" class="table table-striped">
+	<thead id="xx">
+		<tr>
+			<th>Iм'я</th>
+			<th>Фамiлiя</th>
+			<th>Телефон</th>
+			<th>Дата</th>
+			<th>Майстер</th>
+			<th>Колiр</th>
+		</tr>
+	</thead>
+	<body>
+		<%@results.each do |row|%>
+		<tr>
+			<td><%=row['Name']%></td>
+			<td><%=row['Last_name']%></td>
+			<td><%=row['Phone']%></td>
+			<td><%=row['Date']%></td>
+			<td><%=row['Master']%></td>
+			<td><%=row['Color']%></td>
+		</tr>
+		<%end%>
+	</body>
+</table>

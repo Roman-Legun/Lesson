@@ -3,6 +3,12 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'sqlite3'
 
+def get_db
+  db = SQLite3::Database.new "shop.db"
+  db.results_as_hash = true
+  return db
+end
+
 configure do
   db = get_db
   db.execute 'CREATE TABLE IF NOT EXISTS "users" (
@@ -75,9 +81,11 @@ post '/users' do
   erb "OK #{@user_name} #{@user_name2} ми радi що ви в нас зарегiструвалися!      
   Наш майстер #{@master} буде вас чекати на: #{@date} #{@color}"
 
-
 end
 
-def get_db
-  return SQLite3::Database.new "shop.db"
+get '/show_users' do
+  db = get_db
+  @results = db.execute 'select * from users order by id desc'
+   erb :show_users
 end
+
