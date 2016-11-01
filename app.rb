@@ -58,6 +58,8 @@ end
 
 get '/posts' do
 
+  db = get_db
+  @resultss = db.execute 'select * from posts order by id desc'
   erb :posts
 
 end
