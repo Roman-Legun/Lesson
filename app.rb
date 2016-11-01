@@ -122,6 +122,7 @@ post '/new_post' do
   end
   db.execute 'insert into posts (Content, Date) values (?, datetime())', [@content]
   erb"Ваш пост був успiшно доданий!"
+  redirect to '/posts'
 end
 
 get '/show_users' do
