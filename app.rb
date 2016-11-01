@@ -106,6 +106,11 @@ post '/users' do
 
 end
 
+post '/new_post' do 
+  @content = params[:content]
+  erb "Ви ввели #{@content}"
+end
+
 get '/show_users' do
   db = get_db
   @results = db.execute 'select * from users order by id desc'
