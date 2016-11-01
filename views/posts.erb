@@ -4,8 +4,8 @@
 <%@resultss.each do |post|%>
 
 <h4><%=post['Content']%></h4>
-	<h5 style="color: #008000">додано: <%=post['Date']%></h5>
-
+	<h5 style="color: #008000">додано: <%=post['Date']%>&nbsp; &nbsp;
+	<a href="<%=post['id']%>">зробити коментар</a></h5>
 <hr>
 
 <%end%>
