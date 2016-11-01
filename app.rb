@@ -37,6 +37,11 @@ configure do
   "Master" TEXT,
   "Color" TEXT
   )'
+  db.execute 'CREATE TABLE IF NOT EXISTS "posts" (
+  "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+  "Date" DATE,
+  "Content" TEXT
+  )'
   db.execute 'CREATE TABLE IF NOT EXISTS "masters" (
   "id" INTEGER PRIMARY KEY AUTOINCREMENT,
   "Name" TEXT  
