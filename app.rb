@@ -112,8 +112,14 @@ post '/users' do
 end
 
 post '/new_post' do 
+  db = get_db
   @content = params[:content]
-  erb "Ви ввели #{@content}"
+  if @content.length == 0
+    @error = "Введiть текст!"
+    return erb :new_post
+  end
+  db.execute 'insert into posts (Content, Date) values (?, datetime())', [@content]
+  erb"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 end
 
 get '/show_users' do
