@@ -28,3 +28,11 @@ width: 500px;
 #menu {
 	background-color: #ADD8E6;
 }
+
+hr {
+
+	width: auto;
+
+	height: 3px;
+	background-color: #A9A9A9;
+}

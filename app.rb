@@ -121,7 +121,7 @@ post '/new_post' do
     return erb :new_post
   end
   db.execute 'insert into posts (Content, Date) values (?, datetime())', [@content]
-  erb"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  erb"Ваш пост був успiшно доданий!"
 end
 
 get '/show_users' do
