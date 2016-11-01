@@ -51,9 +51,9 @@ get '/' do
   
 end
 
-get '/music' do
+get '/posts' do
 
-  erb :music
+  erb :posts
 
 end
 
@@ -63,9 +63,8 @@ get '/users' do
 
 end
 
-get '/kino' do
-  @error = "Кiна поки що нема!!!"
-  erb :kino
+get '/new_post' do
+  erb :new_post
 end
 
 post '/users' do
