@@ -131,3 +131,10 @@ get '/show_users' do
   erb :show_users
 end
 
+get '/details/:post_id' do
+  db = get_db
+  post_id = params[:post_id]
+  results = db.execute 'select * from posts where id = ?', [post_id]
+  @row = results[0]
+  erb :details
+end
