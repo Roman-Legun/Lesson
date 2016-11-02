@@ -46,6 +46,13 @@ configure do
   "id" INTEGER PRIMARY KEY AUTOINCREMENT,
   "Name" TEXT  
   )'
+  db.execute 'CREATE TABLE IF NOT EXISTS "comments" (
+  "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+  "Date" DATE,
+  "Content" TEXT,
+  "Post_id" INTEGER
+  )'
+
 
   seed_db db, ["Коля Ткачук", "Леся Дузiнкевич", "Роман Човганюк", "Орест Калиновський", "Богдан Ткаченко"]
 
@@ -136,5 +143,14 @@ get '/details/:post_id' do
   post_id = params[:post_id]
   results = db.execute 'select * from posts where id = ?', [post_id]
   @row = results[0]
+  @comments = db.execute 'select * from comments where post_id = ?', [post_id]
   erb :details
+end
+
+post '/details/:post_id' do
+  db = get_db
+  post_id = params[:post_id]
+  content = params[:content2]
+  db.execute 'insert into comments (Content, Date, Post_id) values (?, datetime(), ?)', [content, post_id]
+ redirect to ('/details/' + post_id)
 end
